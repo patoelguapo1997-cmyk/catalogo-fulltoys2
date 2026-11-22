@@ -8,8 +8,8 @@
 <meta property="og:site_name" content="Full Toys S.A.">
 <meta property="og:title" content="Full Toys S.A. | Catálogo">
 <meta property="og:description" content="Explora nuestro catálogo de figuras y coleccionables.">
-<meta property="og:url" content="https://catalogofulltoys.netlify.app/">
-<meta property="og:image" content="https://catalogofulltoys.netlify.app/logo2.jpg">
+<meta property="og:url" content="https://catalogo-fulltoys.netlify.app/">
+<meta property="og:image" content="https://catalogo-fulltoys.netlify.app/logo2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -167,7 +167,7 @@ function draw(){
  document.getElementById("ask").href=wa("Hola, busco: "+q.value);
 }
 q.addEventListener("input",function(){SOLO=-1;pg=0;draw()});var SOLO=-1;draw();
-var DL=0,BASE="https://catalogofulltoys.netlify.app/";function sl(n){return"p-"+n.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)}
+var DL=0,BASE="https://catalogo-fulltoys.netlify.app/";function sl(n){return"p-"+n.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)}
 function go(){var h=location.hash.slice(1),i=-1;P.forEach(function(x,k){if(sl(x.n)===h)i=k});if(i<0)return;DL=1;cur="Todos";q.value="";pg=0;SOLO=i;var sb=document.getElementById("solo");if(!sb){sb=document.createElement("div");sb.id="solo";sb.innerHTML='<span>Estás viendo un producto compartido</span><button type="button">Ver todo el catálogo ›</button>';grid.parentNode.insertBefore(sb,grid);sb.querySelector("button").onclick=function(){SOLO=-1;DL=0;try{history.replaceState(null,"",location.pathname+location.search)}catch(e){}draw();window.scrollTo(0,0)}}draw();window.scrollTo(0,0)}
 grid.addEventListener("click",function(e){var b=e.target.closest(".shr");if(!b)return;var x=P[+b.dataset.i],u=BASE+"#"+sl(x.n),o=b.textContent;function ok(){b.textContent="Link copiado ✓";setTimeout(function(){b.textContent=o},1800)}function cpy(){if(navigator.clipboard)navigator.clipboard.writeText(u).then(ok,function(){prompt("Copia este link:",u)});else prompt("Copia este link:",u)}if(navigator.share)navigator.share({title:x.n,url:u}).catch(function(r){if(!r||r.name!=="AbortError")cpy()});else cpy()});
 window.addEventListener("hashchange",go);go();
